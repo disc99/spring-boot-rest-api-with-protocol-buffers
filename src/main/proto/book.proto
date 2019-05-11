@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package io.disc99.example;
+
+message BookRequest {
+    int32 id = 1;
+}
+
+message BookResponse {
+    int32 id = 1;
+    string title = 2;
+    int32 price = 3;
+}
