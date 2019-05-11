@@ -17,7 +17,7 @@ import static org.springframework.http.MediaType.*;
 
 @SpringBootApplication
 @RestController
-@RequestMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+@RequestMapping(produces = APPLICATION_JSON_VALUE)
 public class DemoApplication {
 
 	public static void main(String[] args) {
