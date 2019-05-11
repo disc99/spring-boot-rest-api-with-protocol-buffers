@@ -1,6 +1,7 @@
 package com.example.demo;
 
-import io.disc99.example.Example.*;
+import com.google.protobuf.Timestamp;
+import io.disc99.example.Book.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 import static org.springframework.http.MediaType.*;
 
@@ -32,6 +35,7 @@ public class DemoApplication {
 				.setId(request.getId())
 				.setTitle("Title " + request.getId())
 				.setPrice(2_000)
+				.setReleaseDate(Timestamp.newBuilder().setSeconds(new Date().getTime()))
 				.build();
 	}
 }

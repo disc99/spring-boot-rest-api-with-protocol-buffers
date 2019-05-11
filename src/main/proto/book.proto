@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 package io.disc99.example;
 
 message BookRequest {
@@ -10,4 +12,5 @@ message BookResponse {
     int32 id = 1;
     string title = 2;
     int32 price = 3;
+    google.protobuf.Timestamp release_date = 4;
 }
