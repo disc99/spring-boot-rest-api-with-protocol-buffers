@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
+import org.springframework.http.converter.protobuf.ProtobufJsonFormatHttpMessageConverter;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,8 @@ public class DemoApplication {
 	}
 
 	@Bean
-	ProtobufHttpMessageConverter protobufHttpMessageConverter() {
-		return new ProtobufHttpMessageConverter();
+	ProtobufJsonFormatHttpMessageConverter protobufJsonFormatHttpMessageConverter() {
+		return new ProtobufJsonFormatHttpMessageConverter();
 	}
 
 	@PostMapping("/")
@@ -35,7 +36,7 @@ public class DemoApplication {
 				.setId(request.getId())
 				.setTitle("Title " + request.getId())
 				.setPrice(2_000)
-				.setReleaseDate(Timestamp.newBuilder().setSeconds(new Date().getTime()))
+				.setReleaseDate(Timestamp.getDefaultInstance())
 				.build();
 	}
 }
